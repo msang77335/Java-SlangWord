@@ -16,15 +16,19 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.BorderFactory;
+import object.ListSlangWord;
 
 /**
  *
  * @author Sang
  */
 public class Menu {
+    ListSlangWord list;
     JPanel MenuPanel;
     ButtonGroup bg;
     JFrame frame;
+    
     public JPanel getMenu() {
         return MenuPanel;
     }
@@ -45,11 +49,16 @@ public class Menu {
     
     void ChoseAction(String ac){
         switch(Integer.parseInt(ac)){
-           
+           case 1:
+                SearchSW searchSW = new SearchSW(list, frame);
+                searchSW.setUpGUI();
+                frame.setEnabled(false);
+                break;
         }
     }
     
-    public Menu(JFrame frame) {
+    public Menu(JFrame frame, ListSlangWord data) {
+        this.list = data;
         this.frame = frame;
         MenuPanel = new JPanel();
         JLabel L1 = new JLabel("MENU");
@@ -117,10 +126,12 @@ public class Menu {
         ChoseJPanel.add(btnExt);
         ChoseJPanel.setLayout(new FlowLayout());
         
+        MenuPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
         MenuPanel.setLayout(new BorderLayout());
         MenuPanel.add(TitlePanel, BorderLayout.PAGE_START);
         MenuPanel.add(ContentJPanel, BorderLayout.CENTER);
         MenuPanel.add(ChoseJPanel, BorderLayout.PAGE_END);
+       
        
         MenuPanel.setVisible(true);
     }
