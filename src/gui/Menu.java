@@ -50,10 +50,15 @@ public class Menu {
     void ChoseAction(String ac){
         switch(Integer.parseInt(ac)){
            case 1:
-                SearchSW searchSW = new SearchSW(list, frame);
+                SearchSW searchSW = new SearchSW(list, frame, true);
                 searchSW.setUpGUI();
                 frame.setEnabled(false);
                 break;
+            case 2:
+               SearchSW searchDef = new SearchSW(list, frame, false);
+               searchDef.setUpGUI();
+               frame.setEnabled(false);
+               break;
         }
     }
     

@@ -39,6 +39,7 @@ public class SearchSW {
     JPanel Result;
     JTextField KeyWord;
     ListSlangWord list;
+    Boolean isSlangWord;
     
     class BtnAction implements ActionListener
     {
@@ -48,41 +49,70 @@ public class SearchSW {
 		if (strActionCommand.equals("SEARCH"))
 		{
                     if(!KeyWord.getText().isEmpty()){
-                        //frame.setEnabled(false);
-                        ArrayList<String> result = list.searchBySlangWord(KeyWord.getText());
-                        if(result == null){
-                            String mess = "SlangWord: " + KeyWord.getText() + "\nKhông có trong từ điển!!";
-                            Object[] options = {"OK"};
-                            int n = JOptionPane.showOptionDialog(frame,
-                            mess,
-                            "Search",
-                            JOptionPane.YES_NO_CANCEL_OPTION,
-                            JOptionPane.INFORMATION_MESSAGE,
-                            null,
-                            options,
-                            null);
+                        if(isSlangWord == true){
+                            ArrayList<String> result = list.searchBySlangWord(KeyWord.getText());
+                            if(result == null){
+                                String mess = "SlangWord: " + KeyWord.getText() + "\nKhông có trong từ điển!!";
+                                Object[] options = {"OK"};
+                                int n = JOptionPane.showOptionDialog(frame,
+                                mess,
+                                "Search",
+                                JOptionPane.YES_NO_CANCEL_OPTION,
+                                JOptionPane.INFORMATION_MESSAGE,
+                                null,
+                                options,
+                                null);
+                            }
+                            else{
+                                String def = "";
+                                for (int i = 0; i< result.size(); i++){
+                                    if(i != result.size() - 1){
+                                        def = def + result.get(i) + " | ";
+                                    }
+                                    else if (i == result.size() - 1){
+                                        def = def + result.get(i);
+                                    }
+                                }
+                                String mess = "SlangWord: " + KeyWord.getText() + "\nDefinition: " + def;
+                                Object[] options = {"OK"};
+                                int n = JOptionPane.showOptionDialog(frame,
+                                mess,
+                                "Search",
+                                JOptionPane.YES_NO_CANCEL_OPTION,
+                                JOptionPane.INFORMATION_MESSAGE,
+                                null,
+                                options,
+                                null);
+                            }
                         }
                         else{
-                            String def = "";
-                            for (int i = 0; i< result.size(); i++){
-                                if(i != result.size() - 1){
-                                    def = def + result.get(i) + " | ";
-                                }
-                                else if (i == result.size() - 1){
-                                    def = def + result.get(i);
-                                }
+                            String result = list.searchByDefinition(KeyWord.getText());
+                            if(result == null){
+                                String mess = "Definition: " + KeyWord.getText() + "\nKhông có trong từ điển!!";
+                                Object[] options = {"OK"};
+                                int n = JOptionPane.showOptionDialog(frame,
+                                mess,
+                                "Search",
+                                JOptionPane.YES_NO_CANCEL_OPTION,
+                                JOptionPane.INFORMATION_MESSAGE,
+                                null,
+                                options,
+                                null);
                             }
-                            String mess = "SlangWord: " + KeyWord.getText() + "\nDefinition: " + def;
-                            Object[] options = {"OK"};
-                            int n = JOptionPane.showOptionDialog(frame,
-                            mess,
-                            "Search",
-                            JOptionPane.YES_NO_CANCEL_OPTION,
-                            JOptionPane.INFORMATION_MESSAGE,
-                            null,
-                            options,
-                            null);
+                            else{
+                                String mess = "Definition: " + KeyWord.getText() + "\nSlangWord: " + result;
+                                Object[] options = {"OK"};
+                                int n = JOptionPane.showOptionDialog(frame,
+                                mess,
+                                "Search",
+                                JOptionPane.YES_NO_CANCEL_OPTION,
+                                JOptionPane.INFORMATION_MESSAGE,
+                                null,
+                                options,
+                                null);
+                            }
                         }
+                        
                         //ArrayList<String> result = list.searchBySlangWord(KeyWord.getText());
                         //frameResult = new JFrame();
                         //frameResult.setTitle("Tìm kiếm bằng Slang-word");
@@ -156,14 +186,23 @@ public class SearchSW {
 	}
     }
     
-    public SearchSW(ListSlangWord list, JFrame menu) {
+    public SearchSW(ListSlangWord list, JFrame menu, Boolean isSlangWord) {
+        this.isSlangWord = isSlangWord;
         this.menuFrame = menu;
         this.list = list;
-        JLabel LTitle = new JLabel("Tìm kiếm theo Slang-Word");
+        JLabel LTitle = new JLabel();
+        JLabel L1 = new JLabel();
+        if(isSlangWord == true)
+        {
+            LTitle.setText("Tìm kiếm theo Slang-Word");
+            L1.setText("Slang-Word:");
+        }else{
+            LTitle.setText("Tìm kiếm theo Definition");
+            L1.setText("Definition:");
+        }
         JPTitle = new JPanel();
         JPTitle.add(LTitle);
         
-        JLabel L1 = new JLabel("Slang-Word:");
         KeyWord = new JTextField(16);
         JPContent = new JPanel();
         JPContent.setLayout(new FlowLayout());
@@ -186,7 +225,12 @@ public class SearchSW {
     
     public void setUpGUI(){
         frame = new JFrame();
-        frame.setTitle("Tìm kiếm bằng Slang-word");
+        if(isSlangWord == true){
+            frame.setTitle("Tìm kiếm bằng Slang-word");
+        }
+        else{
+             frame.setTitle("Tìm kiếm bằng Definition");
+        }
         Container = new JPanel();
         Container.setLayout(new BorderLayout());
         Container.add(JPTitle, BorderLayout.PAGE_START);
