@@ -25,7 +25,7 @@ public class FileAction {
                 for(String item : lineSplit[1].split("\\|")){
                    values.add(item);
                 }
-                list.add(key, values);
+                list.addMap(key, values);
             }
            
         } catch (Exception e) {

@@ -16,9 +16,22 @@ import file.FileAction;
  */
 public class ListSlangWord {
     HashMap<String, ArrayList<String>> list = new HashMap<String, ArrayList<String>>();
-    public void add(String key, ArrayList<String> values){
+    public void addMap(String key, ArrayList<String> values){
         list.put(key, values);
     }
+    public void add(String key, String value){
+        if(list.containsKey(key)){
+            ArrayList<String> newArrayList = list.get(key);
+            newArrayList.add(value);
+            list.put(key, newArrayList);
+        }
+        else{
+            ArrayList<String> newArrayList = new ArrayList<>();
+            newArrayList.add(value);
+            list.put(key, newArrayList);
+        }
+    }
+    
     public void edit(String key, String value){
         
     }

@@ -112,7 +112,6 @@ public class SearchSW {
                                 null);
                             }
                         }
-                        
                         //ArrayList<String> result = list.searchBySlangWord(KeyWord.getText());
                         //frameResult = new JFrame();
                         //frameResult.setTitle("Tìm kiếm bằng Slang-word");

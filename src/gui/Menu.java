@@ -59,6 +59,11 @@ public class Menu {
                searchDef.setUpGUI();
                frame.setEnabled(false);
                break;
+            case 4:
+               Add addSW = new Add(frame, list);
+               addSW.setUpGUI();
+               frame.setEnabled(false);
+               break;
         }
     }
     
