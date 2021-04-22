@@ -64,6 +64,10 @@ public class Menu {
                addSW.setUpGUI();
                frame.setEnabled(false);
                break;
+            case 8:
+               RandomSW randomSW = new RandomSW(frame, list);
+               randomSW.RandomOne();
+               break;
         }
     }
     

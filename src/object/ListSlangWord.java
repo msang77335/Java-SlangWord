@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 import file.FileAction;
+import java.util.Random;
+import sun.awt.SunHints;
 
 /**
  *
@@ -19,6 +21,7 @@ public class ListSlangWord {
     public void addMap(String key, ArrayList<String> values){
         list.put(key, values);
     }
+    
     public void add(String key, String value){
         if(list.containsKey(key)){
             ArrayList<String> newArrayList = list.get(key);
@@ -35,16 +38,24 @@ public class ListSlangWord {
     public void edit(String key, String value){
         
     }
+    
     public void delete(String key, String value){
         
     }
+    
     public void reset(String key, String value){
         FileAction.read("slangword", this);
     }
-    public void random(String key, String value){
-        
-        
+    
+    public String random(){
+        Object randomName = list.keySet().toArray()[new Random().nextInt(list.keySet().toArray().length)];
+        return randomName.toString();
     }
+    
+    public HashMap<String, ArrayList<String>> getList(){
+        return list;
+    }
+    
     public ArrayList<String> searchBySlangWord(String slangword){
         return(list.get(slangword));
     }
