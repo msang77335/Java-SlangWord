@@ -24,7 +24,31 @@ public class RandomSW {
     }
     public void RandomOne()
     {
-        String key = list.random();
+        String key = list.random(1).get(0);
+        ArrayList<String> values = list.getList().get(key);
+        String def = "";
+        for(int i = 0; i < values.size(); i++){
+            if(i != values.size() - 1){
+                def = def + values.get(i) + " | ";
+            }
+            else if (i == values.size() - 1){
+                def = def + values.get(i);
+            }
+        }
+        Object[] options = {"OK"};
+            String mess = "SlangWord: " + key + "\nDefinition: "+ def;
+            int n = JOptionPane.showOptionDialog(menuFrame,
+            mess,
+            "Random SlangWord",
+            JOptionPane.YES_NO_CANCEL_OPTION,
+            JOptionPane.INFORMATION_MESSAGE,
+            null,
+            options,
+            null);
+    }
+    public void RandomQuestion()
+    {
+        String key = list.random(1).get(0);
         ArrayList<String> values = list.getList().get(key);
         String def = "";
         for(int i = 0; i < values.size(); i++){

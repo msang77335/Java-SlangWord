@@ -47,9 +47,16 @@ public class ListSlangWord {
         FileAction.read("slangword", this);
     }
     
-    public String random(){
-        Object randomName = list.keySet().toArray()[new Random().nextInt(list.keySet().toArray().length)];
-        return randomName.toString();
+    public ArrayList<String> random(int n){
+        ArrayList<String> result = new ArrayList<String>();
+        while(result.size() < n){
+            Object randomName = list.keySet().toArray()[new Random().nextInt(list.keySet().toArray().length)];
+            String value = randomName.toString();
+            if(!result.contains(value)){
+                result.add(value);
+            }
+        }
+        return result;
     }
     
     public HashMap<String, ArrayList<String>> getList(){

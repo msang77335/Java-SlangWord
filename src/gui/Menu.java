@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.BorderFactory;
+import javax.swing.text.html.HTML;
 import object.ListSlangWord;
 
 /**
@@ -73,7 +74,11 @@ public class Menu {
                RandomSW randomSW = new RandomSW(frame, list);
                randomSW.RandomOne();
                break;
-            
+            case 9:
+               frame.setEnabled(false);
+               FunnyQuestion funnyQuestion = new FunnyQuestion(frame, list, true);
+               funnyQuestion.setUpGUI();             
+               break;
         }
     }
     
