@@ -5,6 +5,7 @@
  */
 package gui;
 
+import file.FileAction;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -64,10 +65,15 @@ public class Menu {
                addSW.setUpGUI();
                frame.setEnabled(false);
                break;
+            case 7:
+                Reset reset = new Reset(frame, list);
+                reset.reset();
+                break;
             case 8:
                RandomSW randomSW = new RandomSW(frame, list);
                randomSW.RandomOne();
                break;
+            
         }
     }
     

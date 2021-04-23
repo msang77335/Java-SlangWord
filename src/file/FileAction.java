@@ -4,9 +4,14 @@
  * and open the template in the editor.
  */
 package file;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Set;
 import object.ListSlangWord;
 /**
  *
@@ -31,7 +36,38 @@ public class FileAction {
         } catch (Exception e) {
         }
     }
-    public void write(ListSlangWord list){
-        
+    public static void write(String path, ListSlangWord list){
+        BufferedWriter bw = null;
+        FileWriter fw = null;
+        try {
+                fw = new FileWriter(path);
+                bw = new BufferedWriter(fw);
+                HashMap<String, ArrayList<String>> newList = list.getList();
+                String line = "";
+                Set<String> ketSet = newList.keySet();
+                for(String i : ketSet){
+                    line = line + i + "`";
+                    
+                    ArrayList<String> values = new ArrayList<String>();
+                    values = newList.get(i);
+                    for(int j = 0; j < values.size(); j++){
+                        if(j != values.size() - 1){
+                            line = line + values.get(j) + "|";
+                            }
+                            else if (j == values.size() - 1){
+                                line = line + values.get(j);
+                            }
+                    }
+                    System.out.println(line);;
+                    bw.write(line);
+                    bw.newLine();
+                    line = "";
+                }
+                bw.close();
+                System.out.println("Xong");
+        } catch (IOException e) {
+                e.printStackTrace();
+                
+        }
     }
 }

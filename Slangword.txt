@@ -1,3 +1,6 @@
-Slag`Meaning|123
+Slag`Meaning
 #1`Number one
+$`Dollar| money
 $_$`Has money
+%)`Drunk| giddy
+&`And
