@@ -36,6 +36,8 @@ public class Reset {
             options,
             null);
         if(n == 0){
+            FileAction.read("Slangword.txt", list);
+            FileAction.write("data.txt", list);
             Object[] optionsResule = {"Thoát"};
             String messResult = "Reset SlangWord thành công.";
             JOptionPane.showOptionDialog(menuFrame,

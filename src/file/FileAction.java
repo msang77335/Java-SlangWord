@@ -58,13 +58,11 @@ public class FileAction {
                                 line = line + values.get(j);
                             }
                     }
-                    System.out.println(line);;
                     bw.write(line);
                     bw.newLine();
                     line = "";
                 }
                 bw.close();
-                System.out.println("Xong");
         } catch (IOException e) {
                 e.printStackTrace();
                 

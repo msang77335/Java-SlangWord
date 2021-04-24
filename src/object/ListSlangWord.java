@@ -22,6 +22,10 @@ public class ListSlangWord {
         list.put(key, values);
     }
     
+    public void removeMap(String key){
+        list.remove(key);
+    }
+    
     public void add(String key, String value){
         if(list.containsKey(key)){
             ArrayList<String> newArrayList = list.get(key);
