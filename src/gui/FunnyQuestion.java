@@ -140,7 +140,28 @@ public class FunnyQuestion {
             radioBtn4.setActionCommand(randomList.get(3).toString());
             radioBtn1.setSelected(true);
         }
+        else{
+            Random rand = new Random();
+            ArrayList<String> values = hasList.get(arr.get(0));
+            Question.setText("SlangWord của Definition: " + values.get(rand.nextInt(values.size())));
         
+            radioBtn1.setText("A. " + arr.get(randomList.get(0)));
+            radioBtn1.setForeground(null);
+            radioBtn1.setActionCommand(randomList.get(0).toString());
+
+            radioBtn2.setText("B. " + arr.get(randomList.get(1)));
+            radioBtn2.setForeground(null);
+            radioBtn2.setActionCommand(randomList.get(1).toString());
+
+            radioBtn3.setText("C. " + arr.get(randomList.get(2)));
+            radioBtn3.setForeground(null);
+            radioBtn3.setActionCommand(randomList.get(2).toString());
+
+            radioBtn4.setText("D. " + arr.get(randomList.get(3)));
+            radioBtn4.setForeground(null);
+            radioBtn4.setActionCommand(randomList.get(3).toString());
+            radioBtn1.setSelected(true);
+        }
     }
     
     public void randomQuestion(){
@@ -175,6 +196,26 @@ public class FunnyQuestion {
 
             value = hasList.get(arr.get(randomList.get(3)));
             radioBtn4 = new JRadioButton("D. " + value.get(rand.nextInt(value.size())));
+            radioBtn4.setActionCommand(randomList.get(3).toString());
+        }
+        else{
+            Random rand = new Random();
+            ArrayList<String> values = hasList.get(arr.get(0));
+            Question = new JLabel("SlangWord của Definition: " + values.get(rand.nextInt(values.size())));
+            JPTitle = new JPanel();
+            JPTitle.add(Question);
+
+        
+            radioBtn1 = new JRadioButton("A. " + arr.get(randomList.get(0)));
+            radioBtn1.setActionCommand(randomList.get(0).toString());
+
+            radioBtn2 = new JRadioButton("B. " + arr.get(randomList.get(1)));
+            radioBtn2.setActionCommand(randomList.get(1).toString());
+
+            radioBtn3 = new JRadioButton("C. " + arr.get(randomList.get(2)));
+            radioBtn3.setActionCommand(randomList.get(2).toString());
+
+            radioBtn4 = new JRadioButton("D. " + arr.get(randomList.get(3)));
             radioBtn4.setActionCommand(randomList.get(3).toString());
         }
         

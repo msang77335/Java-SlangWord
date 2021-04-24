@@ -79,6 +79,11 @@ public class Menu {
                FunnyQuestion funnyQuestion = new FunnyQuestion(frame, list, true);
                funnyQuestion.setUpGUI();             
                break;
+            case 10:
+               frame.setEnabled(false);
+               FunnyQuestion funnyQuestionDef = new FunnyQuestion(frame, list, false);
+               funnyQuestionDef.setUpGUI();             
+               break;
         }
     }
     
