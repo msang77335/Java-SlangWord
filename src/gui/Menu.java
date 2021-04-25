@@ -66,6 +66,11 @@ public class Menu {
                addSW.setUpGUI();
                frame.setEnabled(false);
                break;
+            case 5:
+                Edit edit = new Edit(list, frame);
+                edit.setUpGUI();
+                frame.setEnabled(false);
+                break;
             case 6:
                 Delete delete = new Delete(list, frame);
                 delete.setUpGUI();
