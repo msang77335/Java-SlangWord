@@ -57,15 +57,20 @@ public class Menu {
                 frame.setEnabled(false);
                 break;
             case 2:
-               SearchSW searchDef = new SearchSW(list, frame, false);
-               searchDef.setUpGUI();
-               frame.setEnabled(false);
-               break;
+                SearchSW searchDef = new SearchSW(list, frame, false);
+                searchDef.setUpGUI();
+                frame.setEnabled(false);
+                break;
+            case 3:
+                History history = new History(frame);
+                history.setUpGUI();
+                frame.setEnabled(false);
+                break;
             case 4:
-               Add addSW = new Add(frame, list);
-               addSW.setUpGUI();
-               frame.setEnabled(false);
-               break;
+                Add addSW = new Add(frame, list);
+                addSW.setUpGUI();
+                frame.setEnabled(false);
+                break;
             case 5:
                 Edit edit = new Edit(list, frame);
                 edit.setUpGUI();
@@ -81,19 +86,19 @@ public class Menu {
                 reset.reset();
                 break;
             case 8:
-               RandomSW randomSW = new RandomSW(frame, list);
-               randomSW.RandomOne();
-               break;
+                RandomSW randomSW = new RandomSW(frame, list);
+                randomSW.RandomOne();
+                break;
             case 9:
-               frame.setEnabled(false);
-               FunnyQuestion funnyQuestion = new FunnyQuestion(frame, list, true);
-               funnyQuestion.setUpGUI();             
-               break;
+                frame.setEnabled(false);
+                FunnyQuestion funnyQuestion = new FunnyQuestion(frame, list, true);
+                funnyQuestion.setUpGUI();             
+                break;
             case 10:
-               frame.setEnabled(false);
-               FunnyQuestion funnyQuestionDef = new FunnyQuestion(frame, list, false);
-               funnyQuestionDef.setUpGUI();             
-               break;
+                frame.setEnabled(false);
+                FunnyQuestion funnyQuestionDef = new FunnyQuestion(frame, list, false);
+                funnyQuestionDef.setUpGUI();             
+                break;
         }
     }
     

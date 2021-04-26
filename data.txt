@@ -1,5 +1,5 @@
-%)`Drunk| giddy
-$`Dollar| Money
+%)`Drunk|giddy
+$`Dollar|money
 &`And
 Slag`Meaning
 $_$`Has money

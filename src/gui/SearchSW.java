@@ -5,6 +5,7 @@
  */
 package gui;
 
+import file.FileAction;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -73,6 +74,7 @@ public class SearchSW {
                                         def = def + result.get(i);
                                     }
                                 }
+                                FileAction.writeHistory("historySlang.txt", KeyWord.getText(), def);
                                 String mess = "SlangWord: " + KeyWord.getText() + "\nDefinition: " + def;
                                 Object[] options = {"OK"};
                                 int n = JOptionPane.showOptionDialog(frame,
@@ -100,6 +102,7 @@ public class SearchSW {
                                 null);
                             }
                             else{
+                                FileAction.writeHistory("historyDef.txt", KeyWord.getText(), result);
                                 String mess = "Definition: " + KeyWord.getText() + "\nSlangWord: " + result;
                                 Object[] options = {"OK"};
                                 int n = JOptionPane.showOptionDialog(frame,

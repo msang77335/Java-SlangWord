@@ -28,13 +28,30 @@ public class FileAction {
                 String key = lineSplit[0];
                 ArrayList<String> values = new ArrayList<>();
                 for(String item : lineSplit[1].split("\\|")){
-                   values.add(item);
+                   values.add(item.trim());
                 }
                 list.addMap(key, values);
             }
            
         } catch (Exception e) {
         }
+    }
+    public static Object[][] readHistory(String path){
+        ArrayList<Object[]> data = new ArrayList<>();
+        File file = new File(path);
+        try {
+             Scanner scan = new Scanner(file);
+             while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                String[] lineSplit = line.split("`");
+                Object[] lineData = {lineSplit[0], lineSplit[1]};
+                data.add(lineData);
+            }
+           
+        } catch (Exception e) {
+        }
+        Object[][] result = new Object[data.size()][];
+        return data.toArray(result);
     }
     public static void write(String path, ListSlangWord list){
         BufferedWriter bw = null;
@@ -66,6 +83,21 @@ public class FileAction {
         } catch (IOException e) {
                 e.printStackTrace();
                 
+        }
+    }
+    public static void writeHistory(String path, String str1, String str2){
+        BufferedWriter bw = null;
+        FileWriter fw = null;
+        try {
+                fw = new FileWriter(path, true);
+                bw = new BufferedWriter(fw);
+                String line = str1 + "`" + str2;
+                bw.write(line);
+                bw.newLine();
+                bw.close();
+        } catch (IOException e) {
+                e.printStackTrace();
+          
         }
     }
 }
