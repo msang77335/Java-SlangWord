@@ -5,6 +5,7 @@
  */
 package gui;
 
+import file.FileAction;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -58,6 +59,7 @@ public class Add {
                         String newSlang = slang.getText();
                         String newDef = def.getText();
                         list.add(newSlang, newDef);
+                        FileAction.write("slang.txt", list);
                         Object[] options = {"OK"};
                         String mess = "Thêm SlangWord Thành Công!!";
                         int n = JOptionPane.showOptionDialog(frame,

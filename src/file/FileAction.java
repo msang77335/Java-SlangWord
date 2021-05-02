@@ -19,18 +19,23 @@ import object.ListSlangWord;
  */
 public class FileAction {
     public static void read(String path, ListSlangWord list){
+        list.clear();
         File file = new File(path);
         try {
              Scanner scan = new Scanner(file);
              while (scan.hasNextLine()) {
-                String line = scan.nextLine();
-                String[] lineSplit = line.split("`");
-                String key = lineSplit[0];
-                ArrayList<String> values = new ArrayList<>();
-                for(String item : lineSplit[1].split("\\|")){
-                   values.add(item.trim());
+                try {
+                    String line = scan.nextLine();
+                    String[] lineSplit = line.split("`");
+                    String key = lineSplit[0];
+                    ArrayList<String> values = new ArrayList<>();
+                    for(String item : lineSplit[1].split("\\|")){
+                       values.add(item.trim());
+                    }
+                    list.addMap(key, values);
+                } catch (Exception e) {
                 }
-                list.addMap(key, values);
+               
             }
            
         } catch (Exception e) {
@@ -43,9 +48,12 @@ public class FileAction {
              Scanner scan = new Scanner(file);
              while (scan.hasNextLine()) {
                 String line = scan.nextLine();
-                String[] lineSplit = line.split("`");
-                Object[] lineData = {lineSplit[0], lineSplit[1]};
-                data.add(lineData);
+                try {
+                    String[] lineSplit = line.split("`");
+                    Object[] lineData = {lineSplit[0], lineSplit[1]};
+                    data.add(lineData);
+                } catch (Exception e) {
+                }
             }
            
         } catch (Exception e) {

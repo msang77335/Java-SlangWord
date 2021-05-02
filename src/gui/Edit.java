@@ -123,7 +123,7 @@ public class Edit {
                         int index = newDefs.indexOf(oldDef);
                         newDefs.set(index, (newDef.getText()));
                         list.addMap(TF1.getText(), newDefs);
-                        FileAction.write("data.txt", list);
+                        FileAction.write("slang.txt", list);
                         Object[] option = {"OK"};
                         mess = "Sửa SlangWord thành công !!!";
                         JOptionPane.showOptionDialog(frame,

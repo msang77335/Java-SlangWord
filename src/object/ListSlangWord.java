@@ -18,6 +18,11 @@ import sun.awt.SunHints;
  */
 public class ListSlangWord {
     HashMap<String, ArrayList<String>> list = new HashMap<String, ArrayList<String>>();
+    
+    public void clear(){
+        list.clear();
+    }
+    
     public void addMap(String key, ArrayList<String> values){
         list.put(key, values);
     }
@@ -37,18 +42,6 @@ public class ListSlangWord {
             newArrayList.add(value);
             list.put(key, newArrayList);
         }
-    }
-    
-    public void edit(String key, String value){
-        
-    }
-    
-    public void delete(String key, String value){
-        
-    }
-    
-    public void reset(String key, String value){
-        FileAction.read("slangword", this);
     }
     
     public ArrayList<String> random(int n){

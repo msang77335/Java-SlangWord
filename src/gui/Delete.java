@@ -108,7 +108,7 @@ public class Delete {
                         else{
                             list.addMap(TF1.getText(), newDef);
                         }
-                        FileAction.write("data.txt", list);
+                        FileAction.write("slang.txt", list);
                         Object[] option = {"OK"};
                         mess = "Xóa SlangWord thành công !!!";
                         JOptionPane.showOptionDialog(frame,
