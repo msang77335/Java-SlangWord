@@ -42,7 +42,7 @@ public class SlangWord {
         // TODO code application logic here
         
         ListSlangWord list = new ListSlangWord();
-        FileAction.read("data.txt", list);
+        FileAction.read("slang.txt", list);
         //ArrayList<String> values = list.searchBySlangWord("#1");
         //for (String value : values){
         //    System.out.print(value + "|");
